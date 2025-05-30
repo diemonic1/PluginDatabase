@@ -32,7 +32,7 @@ jobs:
           curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
           echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
           sudo apt-get update && sudo apt-get install google-cloud-cli
-          
+
           # Create a directory to cache the SDK installation
           mkdir -p ~/.google-cloud-sdk
           cp -r /usr/lib/google-cloud-sdk/* ~/.google-cloud-sdk/
@@ -99,7 +99,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Restore Database SDK from Cache
         uses: actions/cache@v3
@@ -134,7 +134,6 @@ jobs:
       - name: Install Dependencies
         run: |
           pnpm install
-          pnpm update @steambrew/ttc --latest
         env:
           NODE_ENV: production
 
@@ -147,7 +146,6 @@ jobs:
       - name: Prepare Distribution Files
         id: prepare-distribution
         run: bash ./scripts/build/prepare-dist.sh --silent
-          
 
       - name: Upload to database
         run: bash ./scripts/build/upload-dist.sh ${{ env.PLUGIN_NAME }}
