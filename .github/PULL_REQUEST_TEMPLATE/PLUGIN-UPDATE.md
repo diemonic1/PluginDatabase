@@ -27,7 +27,7 @@ REPLACE_WITH_UPDATE_SUMMARY
 
 - [ ] I am the original author or an authorized maintainer of this plugin.
 - [ ] I have complied with all license requirements for the libraries used, including providing appropriate notices where necessary.
-- [ ] My plugin is entirely FOSS and doesn't rely on any external paid services provided (unless incredibly well known and trusted, and you or anyone you know doesn't profit on it).  
+- [ ] My plugin is fully open source and does not depend on any external paid services, except for widely trusted and well-known platforms. Additionally, neither I nor anyone associated with me profits from any such services.
 
 ### Plugin Functionality
 
