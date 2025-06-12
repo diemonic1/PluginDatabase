@@ -1,0 +1,12 @@
+name: Submit a Plugin
+description: Submit a plugin to be available on the plugin store
+title: "[Submission]"
+labels: [enhancement]
+body:
+- type: checkboxes
+  attributes:
+    label: Before Submitting
+    description: "I have double checked and agree with the following:"
+    options:
+    - label: I am the developer and/or a authorized maintainer of the plugin. 
+      required: true
