@@ -37,3 +37,6 @@
 [submodule "plugins/steam-collections-plus"]
 	path = plugins/steam-collections-plus
 	url = https://github.com/luthor112/steam-collections-plus.git
+[submodule "plugins/non-steam-playtimes"]
+	path = plugins/non-steam-playtimes
+	url = https://github.com/apteryxxyz/steam-plugin-non-steam-playtimes
