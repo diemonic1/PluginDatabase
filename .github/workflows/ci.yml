@@ -119,11 +119,11 @@ jobs:
 
       - name: Upload files to R2
         run: |
+          ORIGINAL_SIZE=$(du -sb ./dist/${{ env.PLUGIN_NAME }} | cut -f1)
           zip -r ${{ env.PLUGIN_NAME }}.zip ./dist/${{ env.PLUGIN_NAME }}
+          setfattr -n user.original_size -v "$ORIGINAL_SIZE" ${{ env.PLUGIN_NAME }}.zip
 
-          # Upload specific files
-          aws s3 cp ./${{ env.PLUGIN_NAME }}.zip s3://${{ secrets.R2_BUCKET_NAME }}/ \
-            --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          aws s3 cp ./${{ env.PLUGIN_NAME }}.zip s3://${{ secrets.R2_BUCKET_NAME }}/ --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
 
       - name: Upload Plugin Artifact
         uses: actions/upload-artifact@v4
