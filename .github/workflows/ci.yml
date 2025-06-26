@@ -119,7 +119,7 @@ jobs:
 
       - name: Upload files to R2
         run: |
-          id=$(jq -r '.id' "$PLUGIN_NAME"/metadata.json) || { echo "::error::Failed to extract id from $PLUGIN_NAME/metadata.json"; exit 1; }
+          id=$(jq -r '.id' "./dist/${{ env.PLUGIN_NAME }}/metadata.json) || { echo "::error::Failed to extract id from ./dist/${{ env.PLUGIN_NAME }}/metadata.json"; exit 1; }
           zip -r $id.zip ./dist/${{ env.PLUGIN_NAME }}/*
           aws s3 cp ./$id.zip s3://${{ secrets.R2_BUCKET_NAME }}/ --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
 
