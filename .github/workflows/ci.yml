@@ -135,6 +135,8 @@ jobs:
           aws-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+          role-skip-session-tagging: true
+          mask-aws-account-id: false
 
       - name: Upload files to R2
         run: |
