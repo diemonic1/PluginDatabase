@@ -119,7 +119,7 @@ jobs:
 
       - name: Upload files to R2
         run: |
-          zip -r ${{ env.PLUGIN_NAME }}.zip .
+          zip -r ${{ env.PLUGIN_NAME }}.zip ./dist/${{ env.PLUGIN_NAME }}
 
           # Upload specific files
           aws s3 cp ./${{ env.PLUGIN_NAME }}.zip s3://${{ secrets.R2_BUCKET_NAME }}/ \
