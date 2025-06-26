@@ -121,7 +121,7 @@ jobs:
         run: |
           ORIGINAL_SIZE=$(du -sb ./dist/${{ env.PLUGIN_NAME }} | cut -f1)
           zip -r ${{ env.PLUGIN_NAME }}.zip ./dist/${{ env.PLUGIN_NAME }}
-          setfattr -n user.original_size -v "$ORIGINAL_SIZE" ${{ env.PLUGIN_NAME }}.zip
+          echo "original_size=$ORIGINAL_SIZE" | zip -z ${{ env.PLUGIN_NAME }}.zip
 
           aws s3 cp ./${{ env.PLUGIN_NAME }}.zip s3://${{ secrets.R2_BUCKET_NAME }}/ --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
 
