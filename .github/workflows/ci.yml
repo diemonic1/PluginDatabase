@@ -83,27 +83,6 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Restore Database SDK from Cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.google-cloud-sdk
-          key: ${{ runner.os }}-google-cloud-sdk-${{ hashFiles('**/google-cloud-sdk/**') }}
-          restore-keys: |
-            ${{ runner.os }}-google-cloud-sdk-
-
-      - name: Setup Database SDK Path
-        run: |
-          echo "PATH=$PATH:~/.google-cloud-sdk/bin" >> $GITHUB_ENV
-          gcloud --version
-
-      - name: Authenticate to Database
-        env:
-          GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
-        run: |
-          echo "${GCP_SERVICE_ACCOUNT_KEY}" > gcloud-key.json
-          gcloud auth activate-service-account --key-file=gcloud-key.json
-          gcloud config set project steam-brew
-
       - name: Download Build Scripts
         uses: actions/download-artifact@v4
         with:
@@ -130,13 +109,13 @@ jobs:
         run: bash ./scripts/build/prepare-dist.sh --silent
 
       - name: Configure AWS CLI for R2
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-          role-skip-session-tagging: true
-          mask-aws-account-id: false
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.R2_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          aws configure set region auto
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
 
       - name: Upload files to R2
         run: |
