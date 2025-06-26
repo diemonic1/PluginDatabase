@@ -119,11 +119,9 @@ jobs:
 
       - name: Upload files to R2
         run: |
-          ORIGINAL_SIZE=$(du -sb ./dist/${{ env.PLUGIN_NAME }} | cut -f1)
-          zip -r ${{ env.PLUGIN_NAME }}.zip ./dist/${{ env.PLUGIN_NAME }}
-          echo "original_size=$ORIGINAL_SIZE" | zip -z ${{ env.PLUGIN_NAME }}.zip
-
-          aws s3 cp ./${{ env.PLUGIN_NAME }}.zip s3://${{ secrets.R2_BUCKET_NAME }}/ --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          id=$(jq -r '.id' "$PLUGIN_NAME"/metadata.json) || { echo "::error::Failed to extract id from $PLUGIN_NAME/metadata.json"; exit 1; }
+          zip -r $id.zip ./dist/${{ env.PLUGIN_NAME }}/*
+          aws s3 cp ./$id.zip s3://${{ secrets.R2_BUCKET_NAME }}/ --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
 
       - name: Upload Plugin Artifact
         uses: actions/upload-artifact@v4
