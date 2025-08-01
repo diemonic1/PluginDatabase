@@ -7,6 +7,19 @@
 
 &nbsp;
 
+## Introduction
+
+Welcome to the official Millennium Plugin Database — a centralized repository that manages and curates all community and official plugins for the Millennium platform.
+This repository exists to provide a secure, version-controlled collection of plugins that are approved for use with Millennium. Each plugin is tracked as a Git submodule, allowing us to:
+
+* Independently version plugins without relying on the latest changes from their original repositories.
+* Manually review all plugin updates before they reach end users, ensuring code integrity and preventing malicious behavior.
+* Provide a consistent, reliable plugin experience across all installations of Millennium.
+
+Whether you're a plugin developer submitting updates or a user browsing available extensions, this database serves as the trusted source for all Millennium-compatible plugins.
+
+&nbsp;
+
 ### Submitting A Plugin
 
 To submit a plugin to Millennium's plugin repository, open a pull request that adds your plugin as a submodule using the command
