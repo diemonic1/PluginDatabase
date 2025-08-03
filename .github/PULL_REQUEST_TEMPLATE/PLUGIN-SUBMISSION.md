@@ -32,7 +32,7 @@ REPLACE_WITH_SUMMARY
 
 ### Plugin Functionality
 
-- [ ] I have tested the plugin on both the **Stable** and **Beta** SteamOS update channels.
+- [ ] I have tested the plugin on both the **Stable** and **Beta** Steam update channels.
 - [ ] My plugin is **unique**, or provides **additional or alternative functionality** to plugins already on the store.
 
 ### Backend Configuration
