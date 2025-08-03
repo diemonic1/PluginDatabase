@@ -31,7 +31,7 @@ REPLACE_WITH_UPDATE_SUMMARY
 
 ### Plugin Functionality
 
-- [ ] I have tested the plugin on both the **Stable** and **Beta** SteamOS update channels.
+- [ ] I have tested the plugin on both the **Stable** and **Beta** Steam update channels.
 
 ### Backend Configuration
 
