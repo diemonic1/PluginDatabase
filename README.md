@@ -1,5 +1,5 @@
 
-## Plugin Database
+## Plugin Database for [Millennium](https://github.com/SteamClientHomebrew/Millennium)
 
 > [!NOTE]
 > This repository solely exists for developers to submit plugins.<br>
@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Welcome to the official Millennium Plugin Database — a centralized repository that manages and curates all community and official plugins for the Millennium platform.
+Welcome to the official [Millennium](https://github.com/SteamClientHomebrew/Millennium) Plugin Database — a centralized repository that manages and curates all community and official plugins for [Millennium](https://github.com/SteamClientHomebrew/Millennium).
 This repository exists to provide a secure, version-controlled collection of plugins that are approved for use with Millennium. Each plugin is tracked as a Git submodule, allowing us to:
 
 * Independently version plugins without relying on the latest changes from their original repositories.
