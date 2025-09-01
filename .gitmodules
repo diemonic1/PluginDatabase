@@ -43,3 +43,6 @@
 [submodule "plugins/fullscreen-notifications-fix"]
 	path = plugins/fullscreen-notifications-fix
 	url = https://github.com/apteryxxyz/steam-plugin-fullscreen-notifications-fix
+[submodule "plugins/csstats-extension"]
+	path = plugins/csstats-extension
+	url = https://github.com/TOR968/csstats-extension.git
