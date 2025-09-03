@@ -46,3 +46,6 @@
 [submodule "plugins/csstats-extension"]
 	path = plugins/csstats-extension
 	url = https://github.com/TOR968/csstats-extension.git
+[submodule "plugins/leetify-extension"]
+	path = plugins/leetify-extension
+	url = https://github.com/TOR968/leetify-extension
