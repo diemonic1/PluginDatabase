@@ -49,3 +49,6 @@
 [submodule "plugins/leetify-extension"]
 	path = plugins/leetify-extension
 	url = https://github.com/TOR968/leetify-extension
+[submodule "plugins/cswatch-plugin"]
+	path = plugins/cswatch-plugin
+	url = https://github.com/Leon135/cswatch-plugin.git
