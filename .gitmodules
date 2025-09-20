@@ -49,3 +49,6 @@
 [submodule "plugins/leetify-extension"]
 	path = plugins/leetify-extension
 	url = https://github.com/TOR968/leetify-extension
+[submodule "plugins/extendium"]
+	path = plugins/extendium
+	url = https://github.com/BossSloth/Extendium
