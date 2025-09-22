@@ -52,3 +52,6 @@
 [submodule "plugins/cswatch-plugin"]
 	path = plugins/cswatch-plugin
 	url = https://github.com/Leon135/cswatch-plugin.git
+[submodule "plugins/extendium"]
+	path = plugins/extendium
+	url = https://github.com/BossSloth/Extendium
