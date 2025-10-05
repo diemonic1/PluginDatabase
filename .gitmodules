@@ -52,3 +52,6 @@
 [submodule "plugins/extendium"]
 	path = plugins/extendium
 	url = https://github.com/BossSloth/Extendium
+[submodule "plugins/valve-internal-enabler"]
+	path = plugins/valve-internal-enabler
+	url = https://github.com/veygax/valve-internal-enabler
