@@ -73,3 +73,6 @@
 [submodule "plugins/gratitude"]
 	path = plugins/gratitude
 	url = https://github.com/BlythT/Gratitude-Millennium-Plugin
+[submodule "plugins/Steam-GameRenamer-Plugin"]
+	path = plugins/Steam-GameRenamer-Plugin
+	url = https://github.com/Inceptofn/Steam-GameRenamer-Plugin
