@@ -73,3 +73,6 @@
 [submodule "plugins/gratitude"]
 	path = plugins/gratitude
 	url = https://github.com/BlythT/Gratitude-Millennium-Plugin
+[submodule "plugins/steam-share"]
+	path = plugins/steam-share
+	url = https://github.com/wopln/Steam-Share
