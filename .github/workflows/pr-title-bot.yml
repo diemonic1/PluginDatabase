@@ -6,27 +6,63 @@ on:
       - opened
       - synchronize
       - reopened
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "PR number to rewrite (leave blank to process all open PRs)"
+        required: false
+        type: number
 
 permissions:
   pull-requests: write
   contents: read
 
-concurrency:
-  group: pr-title-bot-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
-
 jobs:
-  rewrite:
+  discover:
     runs-on: ubuntu-latest
+    outputs:
+      pr_numbers: ${{ steps.list.outputs.pr_numbers }}
+    steps:
+      - name: Determine target PRs
+        id: list
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          if [[ -n "${{ github.event.pull_request.number }}" ]]; then
+            numbers="[${{ github.event.pull_request.number }}]"
+          elif [[ -n "${{ inputs.pr_number }}" ]]; then
+            numbers="[${{ inputs.pr_number }}]"
+          else
+            numbers=$(gh pr list --repo "$REPO" --state open --limit 1000 --json number --jq '[.[].number]')
+          fi
+
+          echo "Targeting PRs: $numbers"
+          echo "pr_numbers=$numbers" >> "$GITHUB_OUTPUT"
+
+  rewrite:
+    needs: discover
+    if: needs.discover.outputs.pr_numbers != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        pr_number: ${{ fromJson(needs.discover.outputs.pr_numbers) }}
+    concurrency:
+      group: pr-title-bot-${{ matrix.pr_number }}
+      cancel-in-progress: true
     steps:
       - name: Rewrite title and label from plugin diff
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_NUMBER: ${{ matrix.pr_number }}
         run: |
           set -euo pipefail
+
+          HEAD_SHA=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json headRefOid --jq '.headRefOid')
 
           files=$(gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate \
             --jq '.[] | select(.filename | startswith("plugins/")) | "\(.status)\t\(.filename)\t\(.sha)"')
