@@ -114,7 +114,8 @@ jobs:
             exit 0
           fi
 
-          sub_repo=$(printf '%s' "$submodule_url" | sed -E 's#^https://github\.com/([^/]+/[^/]+?)(\.git)?/?$#\1#')
+          sub_repo=$(printf '%s' "$submodule_url" | tr -d '\r' | sed -E 's/[[:space:]]+$//' \
+            | sed -E 's#^https://github\.com/##' | sed -E 's#\.git$##' | sed -E 's#/$##')
 
           common_name=$(gh api "repos/$sub_repo/contents/plugin.json?ref=$submodule_sha" --jq '.content' 2>/dev/null \
             | base64 -d 2>/dev/null | jq -r '.common_name // empty' 2>/dev/null || true)
@@ -125,10 +126,10 @@ jobs:
           fi
 
           new_title="$verb $common_name"
-          current_title=$(gh pr view "$PR_NUMBER" --json title --jq '.title')
+          current_title=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json title --jq '.title')
 
           if [[ "$current_title" != "$new_title" ]]; then
-            gh pr edit "$PR_NUMBER" --title "$new_title"
+            gh pr edit "$PR_NUMBER" --repo "$REPO" --title "$new_title"
           fi
 
-          gh pr edit "$PR_NUMBER" --add-label "$label" --remove-label "$other_label"
+          gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "$label" --remove-label "$other_label"
