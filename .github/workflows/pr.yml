@@ -95,6 +95,7 @@ jobs:
 
   make:
     needs: prepare
+    if: needs.prepare.outputs.has-submodules == 'true'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

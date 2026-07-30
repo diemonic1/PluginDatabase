@@ -17,6 +17,7 @@ jobs:
 
     outputs:
       submodule-matrix: ${{ steps.discover-submodules.outputs.submodule-matrix }}
+      has-submodules: ${{ steps.discover-submodules.outputs.has-submodules }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -79,6 +80,7 @@ jobs:
           cat submodules.json
 
           echo "submodule-matrix=$(cat submodules.json)" >> $GITHUB_OUTPUT
+          echo "has-submodules=$(jq '(.submodules | length) > 0' submodules.json)" >> $GITHUB_OUTPUT
 
       - name: Commit Metadata
         if: github.event_name != 'pull_request' && github.event.repository.fork == false
@@ -95,6 +97,7 @@ jobs:
 
   make:
     needs: prepare
+    if: needs.prepare.outputs.has-submodules == 'true'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
