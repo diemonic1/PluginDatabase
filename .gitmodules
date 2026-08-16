@@ -4,12 +4,6 @@
 [submodule "plugins/adamraichu.auto-accept-custom-launch-args"]
 	path = plugins/adamraichu.auto-accept-custom-launch-args
 	url = https://github.com/AdamRaichu/auto-accept-custom-launch-args
-[submodule "plugins/steamdb"]
-	path = plugins/steamdb
-	url = https://github.com/BossSloth/Steam-SteamDB-extension
-[submodule "plugins/augmented-steam"]
-	path = plugins/augmented-steam
-	url = https://github.com/BossSloth/AugmentedSteam-Extension-Plugin
 [submodule "plugins/millennium-faceit-stats"]
 	path = plugins/millennium-faceit-stats
 	url = https://github.com/alowave/millennium-faceit-stats
@@ -82,3 +76,9 @@
 [submodule "plugins/protondb"]
 	path = plugins/protondb
 	url = https://github.com/unicxrn/protondb-millennium
+[submodule "plugins/millennium-uwp-library-sync"]
+	path = plugins/millennium-uwp-library-sync
+	url = https://github.com/xwxfox/millennium-uwp-library-sync
+[submodule "plugins/steam-share"]
+	path = plugins/steam-share
+	url = https://github.com/wopln/Steam-Share
