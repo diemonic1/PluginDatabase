@@ -73,6 +73,9 @@
 [submodule "plugins/gratitude"]
 	path = plugins/gratitude
 	url = https://github.com/BlythT/Gratitude-Millennium-Plugin
+[submodule "plugins/protondb"]
+	path = plugins/protondb
+	url = https://github.com/unicxrn/protondb-millennium
 [submodule "plugins/millennium-uwp-library-sync"]
 	path = plugins/millennium-uwp-library-sync
 	url = https://github.com/xwxfox/millennium-uwp-library-sync
