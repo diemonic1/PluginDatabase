@@ -4,12 +4,6 @@
 [submodule "plugins/adamraichu.auto-accept-custom-launch-args"]
 	path = plugins/adamraichu.auto-accept-custom-launch-args
 	url = https://github.com/AdamRaichu/auto-accept-custom-launch-args
-[submodule "plugins/steamdb"]
-	path = plugins/steamdb
-	url = https://github.com/BossSloth/Steam-SteamDB-extension
-[submodule "plugins/augmented-steam"]
-	path = plugins/augmented-steam
-	url = https://github.com/BossSloth/AugmentedSteam-Extension-Plugin
 [submodule "plugins/millennium-faceit-stats"]
 	path = plugins/millennium-faceit-stats
 	url = https://github.com/alowave/millennium-faceit-stats
@@ -39,10 +33,10 @@
 	url = https://github.com/luthor112/steam-collections-plus.git
 [submodule "plugins/non-steam-playtimes"]
 	path = plugins/non-steam-playtimes
-	url = https://github.com/apteryxxyz/steam-non-steam-playtimes
+	url = https://github.com/k0d13/steam-non-steam-playtimes
 [submodule "plugins/fullscreen-notifications-fix"]
 	path = plugins/fullscreen-notifications-fix
-	url = https://github.com/apteryxxyz/steam-plugin-fullscreen-notifications-fix
+	url = https://github.com/k0d13/steam-fullscreen-notifications-fix
 [submodule "plugins/csstats-extension"]
 	path = plugins/csstats-extension
 	url = https://github.com/TOR968/csstats-extension.git
@@ -79,6 +73,24 @@
 [submodule "plugins/gratitude"]
 	path = plugins/gratitude
 	url = https://github.com/BlythT/Gratitude-Millennium-Plugin
+[submodule "plugins/cs2-profile-stats"]
+	path = plugins/cs2-profile-stats
+	url = https://github.com/Shightrox/millennium-cs2-profile-stats.git
+[submodule "plugins/Steam-GameRenamer-Plugin"]
+	path = plugins/Steam-GameRenamer-Plugin
+	url = https://github.com/Inceptofn/Steam-GameRenamer-Plugin
+[submodule "plugins/protondb"]
+	path = plugins/protondb
+	url = https://github.com/unicxrn/protondb-millennium
+[submodule "plugins/millennium-uwp-library-sync"]
+	path = plugins/millennium-uwp-library-sync
+	url = https://github.com/xwxfox/millennium-uwp-library-sync
+[submodule "plugins/steam-share"]
+	path = plugins/steam-share
+	url = https://github.com/wopln/Steam-Share
+[submodule "plugins/Easy-Restart-Reload-for-Steam"]
+	path = plugins/Easy-Restart-Reload-for-Steam
+	url = https://github.com/SaiyajinK/Easy-Restart-Reload-for-Steam
 [submodule "plugins/Custom-buttons"]
 	path = plugins/Custom-buttons
 	url = https://github.com/diemonic1/Custom-buttons
