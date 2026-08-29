@@ -1,0 +1,21 @@
+name: Mass comment
+on:
+    workflow_dispatch:
+        inputs:
+            message:
+                description: "Comment to post on all open PRs"
+                required: true
+
+jobs:
+    comment:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Comment on all open PRs
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  gh pr list --state open --limit 1000 --json number --jq '.[].number' | \
+                  while read num; do
+                    gh pr comment "$num" --body "${{ github.event.inputs.message }}"
+                  done
